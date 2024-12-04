@@ -3,6 +3,85 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @{
+        ViewData["Title"] = "Home Page";
+    }
+
+    <div class="text-center">
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <img src="~/Icons/Group_icon.png" alt="Lista Użytkowników" class="img-fluid" style="max-height: 100px;">
+                        <h5 class="card-title mt-3">Lista Użytkowników</h5>
+                        <p class="card-text">[Dla administratora] Edytuj użytkowników aplikacji</p>
+                    </div>
+                </div>
+            </div>
+            <!--Canteen-->
+                <div class="col-md-4">
+                    <a asp-contrller="Canteen" asp-action="Canteen" style="text-decoration: none;">
+                        <div class="card text-center shadow-sm">
+                            <div class="card-body">
+                                <img src="~/Icons/Food_icon.png" alt="Stołówka" class="img-fluid" style="max-height: 100px;">
+                                <h5 class="card-title mt-3">Stołówka</h5>
+                                <p class="card-text">Zobacz kalorykę swojego posiłku</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <!--Legislation-->
+                <div class="col-md-4">
+                    <a asp-contrller="Legislation" asp-action="Legislation" style="text-decoration: none;">
+                        <div class="card text-center shadow-sm">
+                            <div class="card-body">
+                                <img src="~/Icons/Documents_icon.png" alt="Dokumenty" class="img-fluid" style="max-height: 100px;">
+                                <h5 class="card-title mt-3">Dokumenty</h5>
+                                <p class="card-text">Sprawdź obowiązujące cię dokumenty</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <!--Phonbook-->
+            
+                <div class="col-md-4">
+                    <a asp-contrller="Phonebook" asp-action="Phonebook" style="text-decoration: none;">
+                        <div class="card text-center shadow-sm">
+                            <div class="card-body">
+                                <img src="~/Icons/Phone_book_icon.png" alt="Książka Telefoniczna" class="img-fluid" style="max-height: 100px;">
+                                <h5 class="card-title mt-3">Książka Telefoniczna</h5>
+                                <p class="card-text">Zadzwoń do kogo trzeba</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            
+            <!--Map-->
+            
+                <div class="col-md-4">
+                    <a asp-contrller="Map" asp-action="Map" style="text-decoration: none;">
+                        <div class="card text-center shadow-sm">
+                            <div class="card-body">
+                                <img src="~/Icons/Map_icon.png" alt="Mapa" class="img-fluid" style="max-height: 100px;">
+                                <h5 class="card-title mt-3">Mapa</h5>
+                                <p class="card-text">Sprawdź gdzie jesteś</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <!--Sport-->
+                <div class="col-md-4">
+                    <a asp-contrller="Sport" asp-action="Sport" style="text-decoration: none;">
+                        <div class="card text-center shadow-sm">
+                            <div class="card-body">
+                                <img src="~/Icons/Sport_icon.png" alt="Sport" class="img-fluid" style="max-height: 100px;">
+                                <h5 class="card-title mt-3">Sport</h5>
+                                <p class="card-text">Zobacz jak rozwijać sprawność fizyczną</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        </div>
+    </div>
+
 </div>

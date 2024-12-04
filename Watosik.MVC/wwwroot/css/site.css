@@ -1,22 +1,149 @@
-html {
-  font-size: 14px;
+/* Stylizacja ogólna */
+html, body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Wysokoœæ 100% dla uk³adu */
+    display: flex;
+    flex-direction: column; /* Uk³ad kolumnowy */
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* G³ówna zawartoœæ */
+main {
+    flex: 1; /* Dynamiczne wype³nienie przestrzeni miêdzy nag³ówkiem a stopk¹ */
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/* Stylizacja dla navbaru */
+.navbar {
+    border-bottom: 2px solid #ac2925;
+    background-color: #ac2925;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    white-space: nowrap;
 }
 
-body {
-  margin-bottom: 60px;
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Przyciski */
+.btn-primary {
+    background-color: #d9534f;
+    border-color: #d9534f;
+}
+
+    .btn-primary:hover {
+        background-color: #c9302c;
+        border-color: #ac2925;
+    }
+
+/* Stylizacja kart */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 12px; /* Zaokr¹glenie naro¿ników */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    padding: 20px; /* Wiêksze odstêpy wewnêtrzne */
+    height: 300px; /* Sta³a wysokoœæ dla równomiernych kart */
+    width: 100%; /* Skalowalna szerokoœæ */
+    max-width: 400px; /* Maksymalna szerokoœæ */
+    margin: auto; /* Centrowanie */
+}
+
+    /* Efekt skalowania i cienia */
+    .card:hover {
+        transform: scale(1.1); /* Wiêksze powiêkszenie podczas hover */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* WyraŸniejszy cieñ */
+    }
+
+/* Teksty w kartach */
+.card-title {
+    font-size: 1.5rem; /* Wiêkszy tytu³ */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #666; /* Delikatny szary kolor tekstu */
+}
+
+/* Obrazki w kartach */
+.card img {
+    max-height: 150px; /* Wiêksze ikony */
+    max-width: 100%;
+    margin-bottom: 15px; /* Odstêp miêdzy ikon¹ a tekstem */
+}
+
+
+/* Teksty w kartach */
+.card-title {
+    font-size: 1.5rem; /* Wiêkszy tytu³ */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #666; /* Delikatny szary kolor tekstu */
+}
+
+/* Obrazki w kartach */
+.card img {
+    max-height: 150px; /* Ograniczenie wysokoœci obrazka */
+    max-width: 100%; /* Obrazek dostosowuje siê do szerokoœci karty */
+    margin-bottom: 15px; /* Odstêp miêdzy obrazkiem a tekstem */
+    object-fit: contain; /* Utrzymanie proporcji obrazka */
+}
+
+/* Stylizacja responsywna dla mniejszych ekranów */
+@media (max-width: 576px) {
+    .card {
+        max-width: 100%; /* Na ma³ych ekranach karty zajmuj¹ ca³¹ szerokoœæ */
+        padding: 15px; /* Mniejsze odstêpy */
+    }
+}
+
+/* Stylizacja stopki */
+footer {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    border-top: 1px solid #e5e5e5;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%; /* Pe³na szerokoœæ stopki */
+    margin-top: auto; /* Automatyczne przesuniêcie stopki na dó³ */
+}
+
+    footer a {
+        color: #d9534f;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+
+/* Dodanie odstêpów miêdzy obrazem a tekstem */
+.me-2 {
+    margin-right: 0.5rem;
+    margin-left: 0.25rem;
+    max-height: 40px; /* Wiêksze ikony */
+    max-width: 100%;
+    filter: brightness(0) invert(1);
+}
+
+.me-1 {
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+    max-height: 40px; /* Wiêksze ikony */
+    max-width: 100%;
+    filter: brightness(0) invert(1);
 }
