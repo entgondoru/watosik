@@ -1,0 +1,74 @@
+﻿@model Watosik.Application.Queries.CalculatePoints.CalculatePointsResponse
+
+<h3>Wyniki</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Konkurencja</th>
+            <th>Punkty</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.MarszobiegPoints > 0)
+        {
+            <tr>
+                <td>Marszobieg</td>
+                <td>@Model.MarszobiegPoints</td>
+            </tr>
+        }
+        @if (Model.PlywaniePoints > 0)
+        {
+            <tr>
+                <td>Pływanie</td>
+                <td>@Model.PlywaniePoints</td>
+            </tr>
+        }
+        @if (Model.PushUpsPoints > 0)
+        {
+            <tr>
+                <td>Pompki</td>
+                <td>@Model.PushUpsPoints</td>
+            </tr>
+        }
+        @if (Model.PullUpsPoints > 0)
+        {
+            <tr>
+                <td>Podciąganie</td>
+                <td>@Model.PullUpsPoints</td>
+            </tr>
+        }
+        @if (Model.BiegWahadlowyPoints > 0)
+        {
+            <tr>
+                <td>Bieg wahadłowy</td>
+                <td>@Model.BiegWahadlowyPoints</td>
+            </tr>
+        }
+        @if (Model.BiegZygzakiemPoints > 0)
+        {
+            <tr>
+                <td>Bieg zygzakiem</td>
+                <td>@Model.BiegZygzakiemPoints</td>
+            </tr>
+        }
+        @if (Model.SklonyPoints > 0)
+        {
+            <tr>
+                <td>Skłony</td>
+                <td>@Model.SklonyPoints</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Łączna liczba punktów</th>
+            <th>@Model.TotalPoints</th>
+        </tr>
+        <tr>
+            <th>Ocena końcowa</th>
+            <th>@Model.Grade</th>
+        </tr>
+    </tfoot>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Wróć do kalkulatora</a>

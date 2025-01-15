@@ -1,0 +1,31 @@
+﻿@model List<Watosik.Domain.Entities.Teacher>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Imię i nazwisko</th>
+            <th>Nr pokoju</th>
+            <th>Telefon</th>
+            <th>Poniedziałek</th>
+            <th>Wtorek</th>
+            <th>Środa</th>
+            <th>Czwartek</th>
+            <th>Piątek</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var teacher in Model)
+        {
+            <tr>
+                <td>@teacher.FullName</td>
+                <td>@teacher.RoomNumber</td>
+                <td>@teacher.Phone</td>
+                <td>@teacher.Monday</td>
+                <td>@teacher.Tuesday</td>
+                <td>@teacher.Wednesday</td>
+                <td>@teacher.Thursday</td>
+                <td>@teacher.Friday</td>
+            </tr>
+        }
+    </tbody>
+</table>

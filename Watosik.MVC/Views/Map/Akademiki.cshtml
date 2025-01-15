@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Akademiki";
+}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/css/akademikiStyle.css">
+    <script src="/js/site.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>@ViewData["Title"]</h1>
+            <div class="buttons">
+                <a href="javascript:history.back()" class="nav-button">COFNIJ</a>
+                <a href="/" class="nav-button">HOME</a>
+            </div>
+        </div>
+    </header>
+   
+    <main>
+    <div class="content">
+        <!-- Sekcja przycisków -->
+        <section class="menu">
+            <button class="menu-button" onclick="showImage('img1')">AKADEMIK WOJSKOWY<br>NR 1</button>
+            <button class="menu-button" onclick="showImage('img2')">AKADEMIK WOJSKOWY<br>NR 2</button>
+            <button class="menu-button" onclick="showImage('img3')">AKADEMIK WOJSKOWY<br>NR 3</button>
+            <button class="menu-button" onclick="showImage('img4')">AKADEMIK WOJSKOWY<br>NR 4</button>
+            <button class="menu-button" onclick="showImage('img5')">AKADEMIK WOJSKOWY<br>NR 5</button>
+            <button class="menu-button" onclick="showImage('img6')">AKADEMIK WOJSKOWY<br>NR 6</button>
+            <button class="menu-button" onclick="showImage('img7')">AKADEMIK WOJSKOWY<br>NR 7</button>
+        </section>
+
+        <!-- Sekcja obrazków -->
+        <section class="image-display">
+            <img id="img1" class="image" src="/Pictures/akademik1.jpg" alt="Akademik 1" style="display: none;">
+            <img id="img2" class="image" src="/Pictures/akademik2.jpg" alt="Akademik 2" style="display: none;">
+            <img id="img3" class="image" src="/Pictures/akademik3.jpg" alt="Akademik 3" style="display: none;">
+            <img id="img4" class="image" src="/Pictures/akademik4.jpg" alt="Akademik 4" style="display: none;">
+            <img id="img5" class="image" src="/Pictures/akademik5.jpg" alt="Akademik 5" style="display: none;">
+            <img id="img6" class="image" src="/Pictures/akademik6.jpg" alt="Akademik 6" style="display: none;">
+            <img id="img7" class="image" src="/Pictures/akademik7.jpg" alt="Akademik 7" style="display: none;">
+        </section>
+    </div>
+        <footer>
+            <p>Wybierz Akademik aby zobaczyć jak on wygląda</p>
+        </footer>
+    </main>
+</body>
+</html>

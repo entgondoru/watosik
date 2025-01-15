@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "TrasaZaprawy";
+}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/css/trasaZaprawyStyle.css">
+    <script src="/js/site.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>Trasa Zaprawy</h1>
+            <div class="buttons">
+                <a href="javascript:history.back()" class="nav-button">COFNIJ</a>
+                <a href="/" class="nav-button">HOME</a>
+            </div>
+        </div>
+    </header>
+    <script>
+        // Domyślnie ustaw widoczny tylko obraz nr 7
+        window.onload = function () {
+            document.getElementById('img7').style.display = 'block'; // Pokaż obraz nr 7
+        };
+    </script>
+<main>
+        <section class="image-display">
+            <img id="img7" class="image" src="/Pictures/mapaTrasaZaprawy.jpg" alt="Akademik 7" style="display: none;">
+        </section>
+
+
+
+
+
+
+</main>
+
+</body>
+</html>

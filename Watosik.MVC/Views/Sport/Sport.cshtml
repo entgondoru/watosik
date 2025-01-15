@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Sport";
+}
+
+
+
+<!-- Szeroki kafelek na 3 kolumny, wąski na wysokość -->
+
+    <div class=" wide-card-header">
+        <div class="card-body">
+            <div class="section-header">
+                <h2>Sport</h2>
+            </div>
+        </div>
+    </div>
+
+
+<div class="text-center">
+    <div class="row g-3">
+        
+
+        <!-- Pozostałe kafelki -->
+        <div class="col-md-4">
+            <a asp-controller="Competition" asp-action="Index" style="text-decoration: none;">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <img src="~/Icons/icons-calculator.png" alt="Calculator" class="img-fluid" style="max-height: 100px;">
+                        <h5 class="card-title mt-3">Kalkulator</h5>
+                        <p class="card-text">Oblicz swój wynik na egzaminie</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Sport" asp-action="Rygory" style="text-decoration: none;">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <img src="~/Icons/icons-mark.png" alt="Rygory" class="img-fluid" style="max-height: 100px;">
+                        <h5 class="card-title mt-3">Rygory</h5>
+                        <p class="card-text">Sprawdź wszystkie rygory z W-F</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Sport" asp-action="Konsultacje" style="text-decoration: none;">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <img src="~/Icons/icons-calendar.png" alt="Konsultacje" class="img-fluid" style="max-height: 100px;">
+                        <h5 class="card-title mt-3">Konsultacje</h5>
+                        <p class="card-text">Sprawdź kiedy twój ulubiony prowadzący ma konsultacje.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a asp-controller="Sport" asp-action="Wytyczne" style="text-decoration: none;">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <img src="~/Icons/icons-calculator.png" alt="Calculator" class="img-fluid" style="max-height: 100px;">
+                        <h5 class="card-title mt-3">Wytyczne</h5>
+                        <p class="card-text">Sprawdź co oznaczają dziwne symbole w planie</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Sport" asp-action="Trener_AI" style="text-decoration: none;">
+                <div class="card text-center shadow-sm">
+                    <div class="card-body">
+                        <img src="~/Icons/trener_ai.png" alt="Trener_AI" class="img-fluid" style="max-height: 100px;">
+                        <h5 class="card-title mt-3">Trener GPT</h5>
+                        <p class="card-text">Zapytaj trenera GPT</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

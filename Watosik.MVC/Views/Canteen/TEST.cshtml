@@ -1,0 +1,95 @@
+﻿@using Watosik.MVC.Models
+@model RegisterAndMeals
+
+@{
+    ViewData["Title"] = "Rejestr Posiłków";
+
+    var jadlospis = Model.Register;
+    var posilki = Model.Meals;
+}
+
+<div class="container mt-4">
+    <h2 class="text-center">Rejestr Posiłków</h2>
+    <table class="table table-bordered table-striped mt-4">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>SW1 Śniadanie</th>
+                <th>SW1 Obiad</th>
+                <th>SW1 Kolacja</th>
+                <th>SW2 Śniadanie</th>
+                <th>SW2 Obiad</th>
+                <th>SW2 Kolacja</th>
+                <th>SW3 Śniadanie</th>
+                <th>SW3 Obiad</th>
+                <th>SW3 Kolacja</th>
+                <th>CSK Śniadanie</th>
+                <th>CSK Obiad</th>
+                <th>CSK Kolacja</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var meal in jadlospis)
+            {
+                <tr>
+                    <td>@meal.id</td>
+                    <td>@meal.date.ToString("yyyy-MM-dd")</td>
+                    <td>@meal.sw1_breakfast</td>
+                    <td>@meal.sw1_dinner</td>
+                    <td>@meal.sw1_supper</td>
+                    <td>@meal.sw2_breakfast</td>
+                    <td>@meal.sw2_dinner</td>
+                    <td>@meal.sw2_supper</td>
+                    <td>@meal.sw3_breakfast</td>
+                    <td>@meal.sw3_dinner</td>
+                    <td>@meal.sw3_supper</td>
+                    <td>@meal.csk_breakfast</td>
+                    <td>@meal.csk_dinner</td>
+                    <td>@meal.csk_supper</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<h1>Lista posiłków</h1>
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nazwa posiłku</th>
+            <th>Alergeny</th>
+            <th>Waga (g)</th>
+            <th>Kalorie (kcal)</th>
+            <th>Białko (g)</th>
+            <th>Tłuszcz (g)</th>
+            <th>Węglowodany (g)</th>
+            <th>Składniki alergenne</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (posilki != null && posilki.Any())
+        {
+            foreach (var meal in posilki)
+            {
+                <tr>
+                    <td>@meal.meal_id</td>
+                    <td>@meal.meal_name</td>
+                    <td>@meal.allergens</td>
+                    <td>@meal.weight_g</td>
+                    <td>@meal.energy_kcal</td>
+                    <td>@meal.protein_g.ToString("F2")</td>
+                    <td>@meal.fat_g.ToString("F2")</td>
+                    <td>@meal.carbohydrates.ToString("F2")</td>
+                    <td>@meal.allergenic_ingredients</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="9" class="text-center">Brak dostępnych danych</td>
+            </tr>
+        }
+    </tbody>
+</table>

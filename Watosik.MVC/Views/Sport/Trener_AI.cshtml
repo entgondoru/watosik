@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Trener_AI";
+}
+<div class="trainer_img_container">
+    <img class="trainer_img" src="~/Icons/trener_ai.png" alt="Trener AI" class="trainer-image">
+</div>
+
+<div class="trainer-container">
+    <label for="prompt" class="trainer-label"><b><center>Zapytaj trenera personalnego GPT</center></b></label>
+    <textarea id="prompt" class="trainer-textarea" rows="4" cols="50" placeholder="Wpisz swoje pytanie..."></textarea>
+    <button id="sendButton" class="trainer-button">Wyślij</button>
+</div>
+
+<h2 class="trainer-response-title">Odpowiedź:</h2>
+<div id="responseContainer" class="trainer-response-container">
+    <p class="trainer-response-text">Odpowiedź pojawi się tutaj...</p>
+</div>
+
+<script>
+    document.getElementById("sendButton").addEventListener("click", async function () {
+        const prompt = document.getElementById("prompt").value;
+
+        if (!prompt.trim()) {
+            alert("Wprowadź zapytanie!");
+            return;
+        }
+
+        console.log("Sending request with prompt:", prompt);
+
+        try {
+            const response = await fetch('/api/chat/chatgpt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prompt: prompt })
+            });
+
+            console.log("Received response status:", response.status);
+
+            if (!response.ok) {
+                throw new Error(`Błąd podczas wywoływania API: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            console.log("Received response data:", data);
+
+            document.getElementById("responseContainer").innerHTML = `<p class='trainer-response-text'>${data.response}</p>`;
+        } catch (error) {
+            console.error("Błąd:", error);
+            document.getElementById("responseContainer").innerHTML = `<p class='trainer-response-text'>Błąd podczas pobierania odpowiedzi. Spróbuj ponownie później.</p>`;
+        }
+    });
+</script>

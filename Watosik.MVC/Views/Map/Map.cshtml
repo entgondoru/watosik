@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Interaktywna Mapa";
+}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/css/mapStyle.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>@ViewData["Title"]</h1>
+            <a href="/" class="home-button">HOME</a>
+        </div>
+    </header>
+    <main>
+        <div class="menu">
+            <a href="/Map/Akademiki" class="menu-button">AKADEMIKI</a>
+            <a href="/Map/Instytuty" class="menu-button">INSTYTUTY</a>
+            <a href="/Map/TrasaZaprawy" class="menu-button center-button">TRASA ZAPRAWY</a>
+            <a href="https://www.google.com/maps" class="menu-button">MOJA LOKALIZACJA</a>
+            <a href="/Map/MapaOgolna" class="menu-button">MAPA OGÓLNA</a>
+        </div>
+    </main>
+</body>
+</html>

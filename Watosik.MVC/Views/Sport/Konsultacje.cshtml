@@ -1,0 +1,28 @@
+﻿@model List<Watosik.Domain.Entities.Teacher>
+<div class="container mt-4">
+    <h1>Lista Nauczycieli</h1>
+
+    <!-- Pasek wyszukiwania -->
+    <!-- Pasek wyszukiwania -->
+    <div class="form-group mb-3">
+        <input type="text" id="searchInput" class="form-control" placeholder="Szukaj nauczyciela...">
+    </div>
+
+    <div id="teacherTable">
+        @await Html.PartialAsync("_TeacherTable", Model)
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#searchInput').on('keyup', function () {
+            const searchTerm = $(this).val().toLowerCase();
+
+            $('#teacherTable tbody tr').filter(function () {
+                const rowText = $(this).text().toLowerCase();
+                $(this).toggle(rowText.indexOf(searchTerm) > -1);
+            });
+        });
+    });
+</script>

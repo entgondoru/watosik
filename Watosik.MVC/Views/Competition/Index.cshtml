@@ -1,0 +1,78 @@
+﻿@model Watosik.Application.Queries.CalculatePoints.CalculatePointsQuery
+
+<h3>Wprowadź wyniki</h3>
+
+<form asp-action="Index" method="post">
+    <!-- Wybór płci -->
+    <div class="mb-3">
+        <label>Płeć:</label>
+        <div>
+            <input type="radio" id="male" name="Gender" value="Male" checked />
+            <label for="male">Mężczyzna</label>
+        </div>
+        <div>
+            <input type="radio" id="female" name="Gender" value="Female" />
+            <label for="female">Kobieta</label>
+        </div>
+    </div>
+
+    <!-- Wybór kategorii wiekowej -->
+    <div class="mb-3">
+        <label for="ageCategory">Kategoria wiekowa:</label>
+        <select id="ageCategory" name="AgeCategory" class="form-control">
+            <option value="do 20">do 20</option>
+            <option value="21-25">21-25</option>
+            <option value="26-30">26-30</option>
+        </select>
+    </div>
+
+    <!-- Marszobieg i Pływanie -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="marszobieg">Marszobieg (czas w minutach):</label>
+            <input type="number" step="0.01" class="form-control" id="marszobieg" name="MarszobiegTime" />
+        </div>
+        <div class="col-md-6">
+            <label for="plywanie">Pływanie (dystans w metrach):</label>
+            <input type="number" class="form-control" id="plywanie" name="PlywanieDistance" />
+            <small class="text-muted">Podaj wynik tylko dla jednej konkurencji</small>
+        </div>
+    </div>
+
+    <!-- Podciąganie i Pompki -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="pullups">Podciąganie (liczba powtórzeń):</label>
+            <input type="number" class="form-control" id="pullups" name="PullUps" />
+        </div>
+        <div class="col-md-6">
+            <label for="pushups">Pompki (liczba powtórzeń):</label>
+            <input type="number" class="form-control" id="pushups" name="PushUps" />
+            <small class="text-muted">Podaj wynik tylko dla jednej konkurencji</small>
+        </div>
+    </div>
+
+    <!-- Bieg zygzakiem i Bieg wahadłowy -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="biegZygzakiem">Bieg zygzakiem (czas w sekundach):</label>
+            <input type="number" step="0.01" class="form-control" id="biegZygzakiem" name="BiegZygzakiemTime" />
+        </div>
+        <div class="col-md-6">
+            <label for="biegWahadlowy">Bieg wahadłowy (czas w sekundach):</label>
+            <input type="number" step="0.01" class="form-control" id="biegWahadlowy" name="BiegWahadlowyTime" />
+            <small class="text-muted">Podaj wynik tylko dla jednej konkurencji</small>
+        </div>
+    </div>
+
+    <!-- Skłony -->
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <label for="sklony">Skłony (liczba powtórzeń):</label>
+            <input type="number" class="form-control" id="sklony" name="SklonyReps" />
+        </div>
+    </div>
+
+    <!-- Przycisk wysyłania -->
+    <button type="submit" class="btn btn-primary">Oblicz punkty</button>
+</form>

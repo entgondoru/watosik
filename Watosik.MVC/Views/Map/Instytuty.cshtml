@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Instytuty";
+}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="/css/instytutyStyle.css">
+    <script src="/js/site.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <h1>@ViewData["Title"]</h1>
+            <div class="buttons">
+                <a href="javascript:history.back()" class="nav-button">COFNIJ</a>
+                <a href="/" class="nav-button">HOME</a>
+            </div>
+        </div>
+    </header>
+    <script>
+        // Domyślnie ustaw widoczny tylko obraz nr 7
+        window.onload = function () {
+            document.getElementById('img7').style.display = 'block'; // Pokaż obraz nr 7
+        };
+    </script>
+    <main>
+        <div class="content">
+            <!-- Sekcja przycisków -->
+            <section class="menu">
+                <button class="menu-button" onclick="showImage('img1')">Wydział Elektroniki</button>
+                <button class="menu-button" onclick="showImage('img2')">Wydział Cybernetyki</button>
+                <button class="menu-button" onclick="showImage('img3')">Wydział Inżynieri Mechanicznej</button>
+                <button class="menu-button" onclick="showImage('img4')">Wydział Bezpieczeństwa Logistyki i Zarządzania</button>
+                <button class="menu-button" onclick="showImage('img5')">Wydział Nowych Technologii i Chemii</button>
+                <button class="menu-button" onclick="showImage('img6')">Wydział Inżynierii Lądowej i Geodezji</button>
+                <button class="menu-button" onclick="showImage('img7')">Reset Mapy</button>
+            </section>
+
+            <!-- Sekcja obrazka -->
+            <section class="image-display">
+                <img id="img1" class="image" src="/Pictures/mapaElektrona.jpg" alt="Wydział Elektroniki" style="display: none;">
+                <img id="img2" class="image" src="/Pictures/mapaCybernetyka.jpg" alt="Wydział Cybernetyki" style="display: none;">
+                <img id="img3" class="image" src="/Pictures/mapaMechanika.jpg" alt="Wydział Inżynieri Mechanicznej" style="display: none;">
+                <img id="img4" class="image" src="/Pictures/mapaLogistyka.jpg" alt="Wydział Bezpieczeństwa Logistyki i Zarządzania" style="display: none;">
+                <img id="img5" class="image" src="/Pictures/mapaChemia.jpg" alt="Wydział Nowych Technologii i Chemii" style="display: none;">
+                <img id="img6" class="image" src="/Pictures/mapaGeodezja.jpg" alt="Wydział Inżynierii Lądowej i Geodezji" style="display: none;">
+                <img id="img7" class="image" src="/Pictures/startowaMapa.jpg" alt="Startowa Mapa" style="display: none;">
+            </section>
+        </div>
+        <footer>
+            <p>Wybierz Instytut aby pokazał się on na mapie</p>
+        </footer>
+    </main>
+
+</body>
+</html>
+

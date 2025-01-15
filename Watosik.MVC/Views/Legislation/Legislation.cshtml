@@ -1,0 +1,141 @@
+﻿@using Watosik.Application.DataTransferObjects
+@model IEnumerable<documentDto>
+
+@{
+    ViewData["Title"] = "Dokumenty";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div style="display: flex; height: 80vh; border: 1px solid #ccc;">
+    <!-- Lewa część -->
+    <div style="flex: 1; border-right: 1px solid #ccc; padding: 10px; overflow-y: auto;">
+        <h2>Lista dokumentów</h2>
+        <table id="documentsTable" style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ccc; padding: 8px;">Nazwa dokumentu</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">Grupa dokumentu</th>
+                    <th style="border: 1px solid #ccc; padding: 8px;">Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var document in Model)
+                {
+                    <tr>
+                        <td style="border: 1px solid #ccc; padding: 8px;">
+                            <a href="~/docs/@(document.title.Replace(" ", "%20")).docx" download>@document.title</a>
+                        </td>
+                        <td style="border: 1px solid #ccc; padding: 8px;">@document.document_group</td>
+                        <td style="border: 1px solid #ccc; padding: 8px;">
+                            <a href="~/docs/@(document.title.Replace(" ", "%20")).docx" download>Pobierz</a>
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Prawa część -->
+    <div style="flex: 2; padding: 10px;">
+        <h2>Kontrolki</h2>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div>
+                <label for="search">Szukaj:</label>
+                <input type="text" id="search" placeholder="Wpisz nazwę dokumentu" oninput="filterDocuments()" style="margin-top: 5px;">
+            </div>
+            <div>
+                <label for="sort">Sortuj według:</label>
+                <select id="sort" onchange="sortDocuments()" style="margin-top: 5px;">
+                    <option value="name">Nazwa dokumentu</option>
+                    <option value="group">Grupa dokumentu</option>
+                </select>
+                <button id="sortDirection" onclick="toggleSortDirection()" style="background-color: #f2c0c0; border: none; padding: 5px 10px; margin-top: 5px;">⬇</button>
+            </div>
+            <div>
+                <label for="group">Wybierz grupę:</label>
+                <select id="group" onchange="filterByGroup()" style="margin-top: 5px;">
+                    <option value="all">Wszystkie grupy</option>
+                    @foreach (var group in Model.Select(d => d.document_group).Distinct())
+                    {
+                            <option value="@group">@group</option>
+                    }
+                </select>
+                <div>
+                    <button onclick=reportMissingFile() style="background-color: #f2c0c0; border: none; padding: 5px 10px; margin-top: 5px;">zglos brakujacy plik</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+
+
+<script>
+
+    let isAscending = true;
+
+    function filterDocuments() {
+        const searchValue = document.getElementById("search").value.toLowerCase();
+        const rows = document.querySelectorAll("#documentsTable tbody tr");
+        rows.forEach(row => {
+            const name = row.cells[0].textContent.toLowerCase();
+            row.style.display = name.includes(searchValue) ? "" : "none";
+        });
+    }
+
+    function sortDocuments() {
+        const sortBy = document.getElementById("sort").value;
+        const rows = Array.from(document.querySelectorAll("#documentsTable tbody tr"));
+        rows.sort((a, b) => {
+            const valueA = a.cells[sortBy === "name" ? 0 : 1].textContent.toLowerCase();
+            const valueB = b.cells[sortBy === "name" ? 0 : 1].textContent.toLowerCase();
+            return isAscending ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+        });
+        const tbody = document.querySelector("#documentsTable tbody");
+        tbody.innerHTML = "";
+        rows.forEach(row => tbody.appendChild(row));
+    }
+
+    function toggleSortDirection() {
+        isAscending = !isAscending;
+        const button = document.getElementById("sortDirection");
+        button.textContent = isAscending ? "⬇" : "⬆";
+        sortDocuments();
+    }
+
+    function filterByGroup() {
+        const selectedGroup = document.getElementById("group").value;
+        const rows = document.querySelectorAll("#documentsTable tbody tr");
+        rows.forEach(row => {
+            const group = row.cells[1].textContent;
+            row.style.display = (selectedGroup === "all" || group === selectedGroup) ? "" : "none";
+        });
+    }
+
+
+
+    function reportMissingFile(){
+        const fileName = prompt("Wprowadź proszę nazwę brakującego pliku:");
+        if (fileName) {
+            const subject = encodeURIComponent("Brakujący plik zgłoszony");
+            const body = encodeURIComponent(`Zgłoszono brakujący plik: ${fileName}`);
+            const recipient = "piotr.maik@student.wat.edu.pl";
+
+            const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
+
+            // Open the default email client
+            window.location.href = mailtoLink;
+        } else {
+            alert("Nazwa pliku nie została podana.");
+        }
+    }
+
+
+
+
+
+
+</script>

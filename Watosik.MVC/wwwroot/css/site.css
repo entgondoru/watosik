@@ -1,0 +1,324 @@
+/* Stylizacja ogólna */
+html, body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Wysokoœæ 100% dla uk³adu */
+    display: flex;
+    flex-direction: column; /* Uk³ad kolumnowy */
+}
+
+/* G³ówna zawartoœæ */
+main {
+    flex: 1; /* Dynamiczne wype³nienie przestrzeni miêdzy nag³ówkiem a stopk¹ */
+}
+
+/* Stylizacja dla navbaru */
+.navbar {
+    border-bottom: 2px solid #ac2925;
+    background-color: #ac2925;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Przyciski */
+.btn-primary {
+    background-color: #d9534f;
+    border-color: #d9534f;
+}
+
+    .btn-primary:hover {
+        background-color: #c9302c;
+        border-color: #ac2925;
+    }
+
+/* Stylizacja kart */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 12px; /* Zaokr¹glenie naro¿ników */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    padding: 20px; /* Wiêksze odstêpy wewnêtrzne */
+    height: 300px; /* Sta³a wysokoœæ dla równomiernych kart */
+    width: 100%; /* Skalowalna szerokoœæ */
+    max-width: 400px; /* Maksymalna szerokoœæ */
+    margin: auto; /* Centrowanie */
+}
+
+    /* Efekt skalowania i cienia */
+    .card:hover {
+        transform: scale(1.1); /* Wiêksze powiêkszenie podczas hover */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3); /* WyraŸniejszy cieñ */
+    }
+
+/* Teksty w kartach */
+.card-title {
+    font-size: 1.5rem; /* Wiêkszy tytu³ */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #666; /* Delikatny szary kolor tekstu */
+}
+
+/* Obrazki w kartach */
+.card img {
+    max-height: 150px; /* Wiêksze ikony */
+    max-width: 100%;
+    margin-bottom: 15px; /* Odstêp miêdzy ikon¹ a tekstem */
+}
+
+
+/* Teksty w kartach */
+.card-title {
+    font-size: 1.5rem; /* Wiêkszy tytu³ */
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #666; /* Delikatny szary kolor tekstu */
+}
+
+/* Obrazki w kartach */
+.card img {
+    max-height: 150px; /* Ograniczenie wysokoœci obrazka */
+    max-width: 100%; /* Obrazek dostosowuje siê do szerokoœci karty */
+    margin-bottom: 15px; /* Odstêp miêdzy obrazkiem a tekstem */
+    object-fit: contain; /* Utrzymanie proporcji obrazka */
+}
+
+/* Stylizacja responsywna dla mniejszych ekranów */
+@media (max-width: 576px) {
+    .card {
+        max-width: 100%; /* Na ma³ych ekranach karty zajmuj¹ ca³¹ szerokoœæ */
+        padding: 15px; /* Mniejsze odstêpy */
+    }
+}
+
+/* Stylizacja stopki */
+footer {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    border-top: 1px solid #e5e5e5;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%; /* Pe³na szerokoœæ stopki */
+    margin-top: auto; /* Automatyczne przesuniêcie stopki na dó³ */
+}
+
+    footer a {
+        color: #d9534f;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+
+/* Dodanie odstêpów miêdzy obrazem a tekstem */
+.me-2 {
+    margin-right: 0.5rem;
+    margin-left: 0.25rem;
+    max-height: 40px; /* Wiêksze ikony */
+    max-width: 100%;
+    filter: brightness(0) invert(1);
+}
+
+.me-1 {
+    margin-right: 0.25rem;
+    margin-left: 0.25rem;
+    max-height: 40px; /* Wiêksze ikony */
+    max-width: 100%;
+    filter: brightness(0) invert(1);
+<<<<<<< HEAD
+}
+=======
+}
+
+
+.search-bar_phone_book {
+    margin-bottom: 20px;
+}
+
+    .search-bar_phone_book input {
+        border: 1px solid #d9534f;
+        border-radius: 8px;
+        padding: 10px;
+        width: 100%;
+    }
+
+
+.subsite_tittle {
+    text-align: center;
+    text-transform: uppercase;
+    color: #ac2925;
+}
+
+
+.card_phone_book {
+    background-color: #fff5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: box-shadow 0.2s ease-in-out;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+    .card_phone_book:hover {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .card_phone_book img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+    }
+
+    .card_phone_book .card-details {
+        flex-grow: 1;
+    }
+
+    .card_phone_book .card-actions {
+        display: flex;
+        align-items: center;
+    }
+
+    .card_phone_book .form-check-label {
+        margin-left: 8px;
+    }
+/* Stylizacja dla nag³ówka */
+.trainer-title {
+    font-family: Arial, sans-serif;
+    font-size: 2.5rem;
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Stylizacja dla kontenera formularza */
+.trainer-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+/* Stylizacja dla etykiety */
+.trainer-label {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Stylizacja dla pola tekstowego */
+.trainer-textarea {
+    width: 100%;
+    height: 100px;
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    margin-bottom: 15px;
+}
+
+/* Stylizacja dla przycisku */
+.trainer-button {
+    background-color: #d9534f;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .trainer-button:hover {
+        background-color: #ac2925;
+    }
+
+/* Stylizacja dla tytu³u odpowiedzi */
+.trainer-response-title {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Stylizacja dla kontenera odpowiedzi */
+.trainer-response-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: #333;
+    min-height: 50px;
+}
+
+/* Stylizacja dla tekstu odpowiedzi */
+.trainer-response-text {
+    margin: 0;
+}
+
+.trainer_img{
+    max-height: 250px;
+    margin: 1%;
+}
+
+.trainer_img_container {
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 3vw, 4rem); /* Responsywny rozmiar czcionki */
+    font-weight: bold; /* Pogrubienie tekstu */
+    color: #d9534f; /* Kolor pasuj¹cy do motywu */
+    text-align: center; /* Wyœrodkowanie tekstu */
+    margin: 20px; /* Odstêp od kart */
+    text-transform: uppercase; /* Wszystkie litery wielkie */
+    letter-spacing: 0.1em; /* Wiêksze odstêpy miêdzy literami */
+}
+
+.wide-card-header {
+    height: 100px; /* Wysokoœæ kafelka */
+    display: flex;
+    align-items: center; /* Wyrównanie treœci w pionie */
+    justify-content: center; /* Wyrównanie treœci w poziomie */
+    border: 4px solid #d9534f;
+    border-radius: 12px; /* Zaokr¹glenie naro¿ników */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    width: 100%; /* Skalowalna szerokoœæ */
+    max-width: 1275px; /* Maksymalna szerokoœæ */
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+

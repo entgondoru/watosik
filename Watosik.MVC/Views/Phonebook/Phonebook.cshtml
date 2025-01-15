@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Książka telefoniczna";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Szablon strony</p>
+
+<h1 class="subsite_tittle">
+    @ViewData["Title"]
+</h1>
+
+<div class="container mt-4">
+    <!-- Pole wyszukiwania -->
+    <div class="search-bar_phone_book">
+        <input type="text" id="searchInput" placeholder="Wyszukaj..." />
+    </div>
+
+    <!-- Sekcja kafelków -->
+    <div id="cardsContainer">
+        <!-- Kafelki będą generowane tutaj dynamicznie -->
+    </div>
+</div>
+
+<script>
+    // Pobierz dane z modelu w formacie JSON
+    const persons = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model));
+
+    const cardsContainer = document.getElementById("cardsContainer");
+    const searchInput = document.getElementById("searchInput");
+
+    // Funkcja generująca kafelki
+    function renderCards(data) {
+        cardsContainer.innerHTML = ""; // Wyczyść kontener
+
+        data.forEach(person => {
+            const card = document.createElement("div");
+            card.classList.add("card_phone_book");
+
+            card.innerHTML = `
+                    <img src="https://via.placeholder.com/50" alt="Avatar">
+                    <div class="card-details">
+                        <h5 class="card-title">${person.contact_category || "N/A"} ${person.contact_first_name || ""} ${person.contact_last_name || ""}</h5>
+                        <p class="card-text">
+                            <strong>${person.phone_number || "Brak numeru"}</strong><br>
+                            <a href="mailto:${person.office || ""}">${person.office || "Brak emaila"}</a>
+                        </p>
+                    </div>
+                    <div class="card-actions">
+                        <input type="checkbox" class="form-check-input">
+                        <label class="form-check-label">Dodaj do ulubionych</label>
+                    </div>
+                `;
+
+            cardsContainer.appendChild(card);
+        });
+    }
+
+    // Renderuj początkowe kafelki
+    renderCards(persons);
+
+    // Filtrowanie w czasie rzeczywistym
+    searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+        const filteredPersons = persons.filter(person =>
+            (`${person.contact_first_name} ${person.contact_last_name}`.toLowerCase().includes(query)) ||
+            (person.contact_category || "").toLowerCase().includes(query) ||
+            (person.phone_number || "").includes(query) ||
+            (person.office || "").toLowerCase().includes(query)
+        );
+        renderCards(filteredPersons);
+    });
+</script>

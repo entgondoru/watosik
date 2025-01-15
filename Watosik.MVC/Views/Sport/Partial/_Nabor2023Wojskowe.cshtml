@@ -1,0 +1,144 @@
+﻿<div class="container">
+    <!-- Wyświetlanie tekstu -->
+    <div class="text-content">
+        <ol>
+            <li>
+                Ocena semestralna studenta w semestrach I, III, IV, V, VI i VII ustala się na podstawie średniej arytmetycznej z ocen z testów podlegających zaliczeniu w danym semestrze w następujący sposób:
+                <ul>
+                    <li><b>bardzo dobry (bdb):</b> <span style="font-weight: bold;">5</span> – 4,75 – 5,00</li>
+                    <li><b>dobry plus (db+):</b> <span style="font-weight: bold;">4,5</span> – 4,25 – 4,74</li>
+                    <li><b>dobry (db):</b> <span style="font-weight: bold;">4</span> – 3,75 – 4,24</li>
+                    <li><b>dostateczny plus (dst+):</b> <span style="font-weight: bold;">3,5</span> – 3,25 – 3,74</li>
+                    <li><b>dostateczny (dst):</b> <span style="font-weight: bold;">3</span> – 3,00 – 3,24</li>
+                    <li><b>niedostateczny (ndst):</b> <span style="font-weight: bold;">2</span> – 2,00 – 2,99</li>
+                </ul>
+            </li>
+            <li>
+                Ocena semestralna studenta w II semestrze ustala się na podstawie sumy punktów z ćwiczeń podlegających zaliczeniu w II semestrze zgodnie z „Rozporządzeniem Ministra Obrony Narodowej w sprawie przeprowadzenia sprawdzianu sprawności fizycznej żołnierzy zawodowych” w następujący sposób:
+                <ul>
+                    <li><b>bardzo dobry (bdb):</b> <span style="font-weight: bold;">5</span> – 67 – 84 pkt</li>
+                    <li><b>dobry plus (db+):</b> <span style="font-weight: bold;">4,5</span> – 62 – 66,9 pkt</li>
+                    <li><b>dobry (db):</b> <span style="font-weight: bold;">4</span> – 57 – 61,9 pkt</li>
+                    <li><b>dostateczny plus (dst+):</b> <span style="font-weight: bold;">3,5</span> – 50 – 56,9 pkt</li>
+                    <li><b>dostateczny (dst):</b> <span style="font-weight: bold;">3</span> – 40 – 49,9 pkt</li>
+                    <li><b>niedostateczny (ndst):</b> <span style="font-weight: bold;">2</span> – poniżej 40 pkt</li>
+                </ul>
+            </li>
+        </ol>
+
+    </div>
+
+    <div class="container">
+        <!-- Rozwijane menu -->
+        <div class="semestr-menu" style="margin-top: 20px;">
+            <label for="semester-select" style="font-weight: bold;">Wybierz semestr:</label>
+            <select id="semester-select" onchange="showSemesterImage()" style="display: block; margin-top: 10px; padding: 10px; font-size: 16px;">
+                <option value="">-- Wybierz --</option>
+                <option value="semester1">Semestr I</option>
+                <option value="semester2">Semestr II</option>
+                <option value="semester3">Semestr III</option>
+                <option value="semester4">Semestr IV</option>
+                <option value="semester5">Semestr V</option>
+                <option value="semester6">Semestr VI</option>
+                <option value="semester7">Semestr VII</option>
+                <option value="semester8">Semestr VIII</option>
+            </select>
+        </div>
+
+        <!-- Obszar wyświetlania zrzutu ekranu -->
+        <div id="semester-image-container" class="image-container" style="margin-top: 20px;">
+            <p>Wybierz semestr, aby zobaczyć szczegóły.</p>
+        </div>
+    </div>
+
+    <script>
+        function showSemesterImage() {
+            const semester = document.getElementById("semester-select").value;
+            const container = document.getElementById("semester-image-container");
+
+            container.innerHTML = ""; // Czyścimy zawartość kontenera
+
+            if (semester === "semester1") {
+                const img = document.createElement("img");
+                img.src = "/Pictures/Rygory/2023W1.png"; // Zmień na ścieżkę obrazu semestru I
+                img.alt = "Semestr I";
+                img.style.width = "800px"; // Ustawienie szerokości na sztywno
+                img.style.height = "400px"; // Ustawienie wysokości na sztywno
+                container.appendChild(img);
+            } else if (semester === "semester2") {
+                const img = document.createElement("img");
+                img.src = "/Pictures/Rygory/2023W2.png"; // Zmień na ścieżkę obrazu semestru II
+                img.alt = "Semestr II";
+                img.style.width = "800px"; // Ustawienie szerokości na sztywno
+                img.style.height = "400px"; // Ustawienie wysokości na sztywno
+                container.appendChild(img);
+            } else if (semester === "semester3") {
+                const img = document.createElement("img");
+                img.src = "/Pictures/Rygory/2023W3.png"; // Zmień na ścieżkę obrazu semestru II
+                img.alt = "Semestr III";
+                img.style.width = "800px"; // Ustawienie szerokości na sztywno
+                img.style.height = "400px"; // Ustawienie wysokości na sztywno
+                container.appendChild(img);
+            } else if (semester === "semester4") {
+                const img = document.createElement("img");
+                img.src = "/Pictures/Rygory/2023W4.png"; // Zmień na ścieżkę obrazu semestru II
+                img.alt = "Semestr IV";
+                img.style.width = "800px"; // Ustawienie szerokości na sztywno
+                img.style.height = "400px"; // Ustawienie wysokości na sztywno
+                container.appendChild(img);
+            } else if (semester === "semester5") {
+                const img = document.createElement("img");
+                img.src = "/Pictures/Rygory/2023W5.png"; // Zmień na ścieżkę obrazu semestru II
+                img.alt = "Semestr V";
+                img.style.width = "800px"; // Ustawienie szerokości na sztywno
+                img.style.height = "400px"; // Ustawienie wysokości na sztywno
+                container.appendChild(img);
+            } else if (semester === "semester6") {
+                const img = document.createElement("img");
+                img.src = "/Pictures/Rygory/2023W6.png"; // Zmień na ścieżkę obrazu semestru II
+                img.alt = "Semestr VI";
+                img.style.width = "800px"; // Ustawienie szerokości na sztywno
+                img.style.height = "400px"; // Ustawienie wysokości na sztywno
+                container.appendChild(img);
+            } else if (semester === "semester7") {
+                const img = document.createElement("img");
+                img.src = "/Pictures/Rygory/2023W7.png"; // Zmień na ścieżkę obrazu semestru II
+                img.alt = "Semestr VII";
+                img.style.width = "800px"; // Ustawienie szerokości na sztywno
+                img.style.height = "400px"; // Ustawienie wysokości na sztywno
+                container.appendChild(img);
+            } else if (semester === "semester8") {
+                const img = document.createElement("img");
+                img.src = "/Pictures/Rygory/2023W8.png"; // Zmień na ścieżkę obrazu semestru II
+                img.alt = "Semestr VIII";
+                img.style.width = "800px"; // Ustawienie szerokości na sztywno
+                img.style.height = "400px"; // Ustawienie wysokości na sztywno
+                container.appendChild(img);
+            } 
+            } else {
+                container.innerHTML = "<p>Wybierz semestr, aby zobaczyć szczegóły.</p>";
+            }
+        }
+    </script>
+
+    <style>
+        .semestr-menu {
+            margin-top: 20px;
+        }
+
+        #semester-select {
+            width: 100%; /* Szerokość dostosowana do kontenera */
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease-in-out;
+        }
+
+            #semester-select:focus {
+                border-color: #007bff;
+                outline: none;
+            }
+
+    </style>

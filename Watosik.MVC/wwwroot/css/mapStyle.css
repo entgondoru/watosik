@@ -1,0 +1,92 @@
+﻿/* Reset stylów */
+body, h1, a {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Wysokość strony wypełnia całe okno przeglądarki */
+}
+
+/* Nagłówek */
+.navbar {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .navbar h1 {
+        font-size: 36px;
+        color: #333;
+    }
+
+.home-button {
+    background-color: #b22222;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+    .home-button:hover {
+        background-color: #a11d1d;
+    }
+
+/* Menu */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dwa kafelki w wierszu */
+    gap: 40px;
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    justify-items: center; /* Poziome wyśrodkowanie kafelków */
+    margin-top: 30px;
+}
+
+.menu-button {
+    background-color: #b22222;
+    color: white;
+    padding: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 12px;
+    width: 300px;
+    height: 120px; /* Stała wysokość dla lepszego wyrównania */
+    text-align: center;
+    display: flex; /* Użycie flexbox do wyrównania tekstu wewnątrz kafelka */
+    justify-content: center; /* Poziome wyśrodkowanie tekstu */
+    align-items: center; /* Pionowe wyśrodkowanie tekstu */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .menu-button:hover {
+        background-color: #a11d1d;
+        transform: scale(1.05);
+    }
+
+.center-button {
+    grid-column: span 2;
+    width: 50%; /* Dostosowanie szerokości przycisku centralnego */
+}
+
+chciałbym żeby te czerwone kafelki były na środku
+a to plik cshtml
+@ {
+    ViewData ["Title"] = "Interaktywna Mapa";
+}
